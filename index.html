@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زخرفة الأسماء المتقدمة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --accent: #fd79a8;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            --danger: #d63031;
+            --vip: #f39c12;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: var(--dark);
+            direction: rtl;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            background-color: rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgb(252, 51, 51);
+            width: 90%;
+            max-width: 800px;
+            margin: 20px 0;
+            backdrop-filter: blur(5px);
+        }
+        
+        h1 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+            text-shadow: 2px 2px 4px rgb(255, 0, 0);
+        }
+        
+        h2.section-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin: 20px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h2.section-title.vip {
+            color: var(--vip);
+            border-bottom-color: var(--vip);
+        }
+        
+        .input-group {
+            display: flex;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+        
+        input[type="text"], input[type="password"] {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgb(28, 0, 241);
+        }
+        
+        button {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        button:hover {
+            background-color: #5649d1;
+            transform: translateY(-2px);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #8c7ae6;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background-color: #fc5c9c;
+        }
+        
+        .btn-vip {
+            background-color: var(--vip);
+        }
+        
+        .btn-vip:hover {
+            background-color: #e67e22;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+        
+        .tab-btn {
+            padding: 8px 15px;
+            background-color: #eee;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .tab-btn.vip {
+            background-color: rgba(243, 156, 18, 0.2);
+            color: var(--vip);
+        }
+        
+        .tab-btn.vip.active {
+            background-color: var(--vip);
+            color: white;
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background-color: #ddd;
+        }
+        
+        #decoratedName {
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .decorated-name-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .decorated-name-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .decorated-name-container.vip {
+            border-left: 4px solid var(--vip);
+        }
+        
+        .decorated-name-text {
+            flex-grow: 1;
+            margin: 0;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .decorated-name-text:hover {
+            background-color: rgba(108, 92, 231, 0.1);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .copy-btn, .fav-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .copy-btn {
+            background-color: var(--success);
+        }
+        
+        .copy-btn:hover {
+            background-color: #00a884;
+        }
+        
+        .fav-btn {
+            background-color: var(--warning);
+            color: var(--dark);
+        }
+        
+        .fav-btn:hover {
+            background-color: #fdbb4e;
+        }
+        
+        .favorite {
+            background-color: rgba(253, 203, 110, 0.3);
+            border: 1px solid var(--warning);
+        }
+        
+        .keyboard {
+            display: none;
+            margin-top: 20px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(112, 94, 94, 0.39);
+        }
+        
+        .keyboard.active {
+            display: block;
+        }
+        
+        .keyboard-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+            gap: 5px;
+        }
+        
+        .keyboard-key {
+            padding: 8px 12px;
+            background-color: #f1f1f1;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .keyboard-key:hover {
+            background-color: #ddd;
+            transform: translateY(-2px);
+        }
+        
+        .keyboard-key.space {
+            width: 200px;
+        }
+        
+        .keyboard-key.special {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .keyboard-key.special:hover {
+            background-color: #8c7ae6;
+        }
+        
+        .keyboard-key.vip {
+            background-color: rgba(243, 156, 18, 0.2);
+            color: var(--vip);
+        }
+        
+        .keyboard-key.vip:hover {
+            background-color: rgba(243, 156, 18, 0.3);
+        }
+        
+        .favorites-section, .vip-section {
+            display: none;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .favorites-section.active, .vip-section.active {
+            display: block;
+        }
+        
+        .favorites-header, .vip-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .search-favorites, .search-vip {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            width: 200px;
+        }
+        
+        .load-more {
+            display: block;
+            margin: 20px auto 0;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+        }
+        
+        .style-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .style-option {
+            padding: 8px 15px;
+            background-color: #eee;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .style-option.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .style-option.vip {
+            background-color: rgba(243, 156, 18, 0.2);
+            color: var(--vip);
+        }
+        
+        .style-option.vip.active {
+            background-color: var(--vip);
+            color: white;
+        }
+        
+        .style-option:hover:not(.active) {
+            background-color: #ddd;
+        }
+        
+        .emoji-picker {
+            display: none;
+            position: absolute;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            z-index: 100;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgb(255, 0, 0);
+        }
+        
+        .emoji-picker.active {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 5px;
+        }
+        
+        .emoji-btn {
+            font-size: 1.2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        
+        .emoji-btn:hover {
+            background-color: #f1f1f1;
+        }
+        
+        .vip-login {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .vip-note {
+            background-color: rgba(243, 156, 18, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            border-right: 3px solid var(--vip);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .bpubg-keyboard {
+            display: none;
+            margin-top: 20px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgb(0, 0, 0);
+        }
+        
+        .bpubg-keyboard.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px 15px;
+            }
+            
+            .input-group, .vip-login {
+                flex-direction: column;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .tab-buttons {
+                flex-wrap: wrap;
+            }
+            
+            .keyboard-key {
+                padding: 6px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .keyboard-key.space {
+                width: 150px;
+            }
+            
+            .favorites-header, .vip-header {
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+            }
+            
+            .search-favorites, .search-vip {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1><i class="fas fa-magic"></i> زخرفة الأسماء المتقدمة</h1>
+    
+    <!-- قسم الزخرفة العادية -->
+    <h2 class="section-title"><i class="fas fa-star"></i> الزخرفة العادية</h2>
+    
+    <div class="input-group">
+        <input type="text" id="name" placeholder="أدخل اسمك هنا..." autocomplete="off">
+        <button id="decorateButton"><i class="fas fa-wand-magic-sparkles"></i> زخرف</button>
+    </div>
+    
+    <div class="controls">
+        <button id="toggleKeyboard"><i class="fas fa-keyboard"></i> لوحة الرموز</button>
+        <button id="toggleFavorites"><i class="fas fa-heart"></i> المفضلة</button>
+        <button id="randomStyle"><i class="fas fa-random"></i> عشوائي</button>
+        <button id="toggleVipSection" class="btn-vip"><i class="fas fa-crown"></i> قسم المميزين</button>
+        <button id="toggleBpubgKeyboard" class="btn-vip"><i class="fas fa-gamepad"></i> أحرف ببجي</button>
+    </div>
+    
+    <div class="style-options">
+        <button class="style-option active" data-style="all">الكل</button>
+        <button class="style-option" data-style="classic">كلاسيك</button>
+        <button class="style-option" data-style="cute">كيوت</button>
+        <button class="style-option" data-style="fire">ناري</button>
+        <button class="style-option" data-style="elegant">مانسي</button>
+        <button class="style-option" data-style="bold">وليد</button>
+    </div>
+    
+    <!-- لوحة مفاتيح الرموز العامة -->
+    <div class="keyboard" id="symbolsKeyboard">
+        <div class="keyboard-row">
+            <button class="keyboard-key">★</button>
+            <button class="keyboard-key">☆</button>
+            <button class="keyboard-key">✪</button>
+            <button class="keyboard-key">✫</button>
+            <button class="keyboard-key">✯</button>
+            <button class="keyboard-key">✰</button>
+            <button class="keyboard-key">✦</button>
+            <button class="keyboard-key">✧</button>
+            <button class="keyboard-key">♛</button>
+            <button class="keyboard-key">♚</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="keyboard-key">♥</button>
+            <button class="keyboard-key">♡</button>
+            <button class="keyboard-key">❤</button>
+            <button class="keyboard-key">❥</button>
+            <button class="keyboard-key">❣</button>
+            <button class="keyboard-key">♣</button>
+            <button class="keyboard-key">♦</button>
+            <button class="keyboard-key">♠</button>
+            <button class="keyboard-key">♢</button>
+            <button class="keyboard-key">♤</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="keyboard-key">☬</button>
+            <button class="keyboard-key">☫</button>
+            <button class="keyboard-key">☯</button>
+            <button class="keyboard-key">☮</button>
+            <button class="keyboard-key">☭</button>
+            <button class="keyboard-key">☸</button>
+            <button class="keyboard-key">♱</button>
+            <button class="keyboard-key">✞</button>
+            <button class="keyboard-key">✟</button>
+            <button class="keyboard-key">✠</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="keyboard-key">꧁</button>
+            <button class="keyboard-key">꧂</button>
+            <button class="keyboard-key">༺</button>
+            <button class="keyboard-key">༻</button>
+            <button class="keyboard-key">۝</button>
+            <button class="keyboard-key">۞</button>
+            <button class="keyboard-key">❀</button>
+            <button class="keyboard-key">✿</button>
+            <button class="keyboard-key">❁</button>
+            <button class="keyboard-key">❃</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="keyboard-key">™</button>
+            <button class="keyboard-key">®</button>
+            <button class="keyboard-key">©</button>
+            <button class="keyboard-key">℗</button>
+            <button class="keyboard-key">℠</button>
+            <button class="keyboard-key">℡</button>
+            <button class="keyboard-key">№</button>
+            <button class="keyboard-key">℞</button>
+            <button class="keyboard-key">℀</button>
+            <button class="keyboard-key">℁</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="keyboard-key special" id="emojiPickerBtn"><i class="far fa-smile"></i> إيموجي</button>
+            <button class="keyboard-key space" id="spaceBtn">مسافة</button>
+            <button class="keyboard-key special" id="copyAllBtn"><i class="far fa-copy"></i> نسخ الكل</button>
+        </div>
+    </div>
+    
+    <!-- لوحة مفاتيح أحرف ببجي -->
+    <div class="bpubg-keyboard" id="bpubgKeyboard">
+        <div class="keyboard-row"><button class="keyboard-key">★</button>
+    <button class="keyboard-key">☆</button>
+    <button class="keyboard-key">✪</button>
+    <button class="keyboard-key">✯</button>
+    <button class="keyboard-key">❂</button>
+    <button class="keyboard-key">✵</button>
+    <button class="keyboard-key">✧</button>
+  </div>
+  <div class="keyboard-row">
+    <button class="keyboard-key">✩</button>
+    <button class="keyboard-key">⚝</button>
+    <button class="keyboard-key">⚚</button>
+    <button class="keyboard-key">❈</button>
+    <button class="keyboard-key">⍟</button>
+    <button class="keyboard-key">⛥</button>
+    <button class="keyboard-key">⛧</button>
+  </div>
+  <div class="keyboard-row">
+    <button class="keyboard-key">☬</button>
+    <button class="keyboard-key">♛</button>
+    <button class="keyboard-key">♚</button>
+    <button class="keyboard-key">☠</button>
+    <button class="keyboard-key">⛤</button>
+    <button class="keyboard-key">⚠</button>
+    <button class="keyboard-key">⚔</button>
+  </div>
+  <div class="keyboard-row">
+    <button class="keyboard-key">⚡</button>
+    <button class="keyboard-key">ϟ</button>
+    <button class="keyboard-key">✘</button>
+    <button class="keyboard-key">✞</button>
+    <button class="keyboard-key">☞</button>
+    <button class="keyboard-key">☚</button>
+    <button class="keyboard-key">☢</button>
+    <button class="keyboard-key">☣</button>
+  </div>
+  <div class="keyboard-row">
+    <button class="keyboard-key">𖣘</button>
+    <button class="keyboard-key">𖤍</button>
+    <button class="keyboard-key">𖤐</button>
+    <button class="keyboard-key">𖤓</button>
+    <button class="keyboard-key">𖤘</button>
+    <button class="keyboard-key">𖤛</button>
+    <button class="keyboard-key">𖤞</button>
+    <button class="keyboard-key">𖥧</button>
+  </div>
+  <div class="keyboard-row">
+    <button class="keyboard-key">꙰</button>
+    <button class="keyboard-key">꙳</button>
+    <button class="keyboard-key">꙾</button>
+    <button class="keyboard-key">ꙿ</button>
+    <button class="keyboard-key">۝</button>
+    <button class="keyboard-key">༒</button>
+    <button class="keyboard-key">༆</button>
+    <button class="keyboard-key">༈</button>
+  </div>
+  <div class="keyboard-row">
+    <button class="keyboard-key">༉</button>
+    <button class="keyboard-key">༊</button>
+    <button class="keyboard-key">་</button>
+    <button class="keyboard-key">༁</button>
+    <button class="keyboard-key">ༀ</button>
+    <button class="keyboard-key">༚</button>
+        </div>
+        <div class="keyboard-row">
+            <button class="keyboard-key special" id="copyBpubgBtn"><i class="far fa-copy"></i> نسخ الكل</button>
+            <button class="keyboard-key space" id="bpubgSpaceBtn">مسافة</button>
+            <button class="keyboard-key special" id="clearBpubgBtn"><i class="fas fa-trash"></i> مسح</button>
+        </div>
+    </div>
+    
+    <div class="emoji-picker" id="emojiPicker"></div>
+    
+    <!-- قسم المفضلة -->
+    <div class="favorites-section" id="favoritesSection">
+        <div class="favorites-header">
+            <h3><i class="fas fa-heart"></i> الأسماء المفضلة</h3>
+            <input type="text" class="search-favorites" placeholder="ابحث في المفضلة...">
+        </div>
+        <div id="favoritesList"></div>
+        <button class="btn-accent" id="clearFavorites"><i class="fas fa-trash"></i> حذف الكل</button>
+    </div>
+    
+    <!-- قسم المميزين -->
+    <div class="vip-section" id="vipSection">
+        <div class="vip-note">
+            <i class="fas fa-lock"></i> هذا القسم خاص بالأعضاء المميزين فقط. أدخل كلمة السر للوصول إلى زخارف حصرية.
+        </div>
+        
+        <div class="vip-login">
+            <input type="password" id="vipPassword" placeholder="كلمة السر للمميزين">
+            <button id="vipLoginBtn" class="btn-vip"><i class="fas fa-key"></i> دخول</button>
+        </div>
+        
+        <div id="vipContent" style="display: none;">
+            <div class="vip-header">
+                <h3><i class="fas fa-crown"></i> الأسماء المميزة</h3>
+                <input type="text" class="search-vip" placeholder="ابحث في الأسماء المميزة...">
+            </div>
+            
+            <div class="style-options">
+                <button class="style-option vip active" data-style="vip-all">الكل</button>
+                <button class="style-option vip" data-style="vip-gold">ذهبي</button>
+                <button class="style-option vip" data-style="vip-silver">فضي</button>
+                <button class="style-option vip" data-style="vip-diamond">ماسي</button>
+            </div>
+            
+            <div id="vipNamesList"></div>
+            
+            <div class="input-group" style="margin-top: 20px;">
+                <input type="text" id="vipName" placeholder="أدخل اسمك للزخرفة المميزة">
+                <button id="vipDecorateBtn" class="btn-vip"><i class="fas fa-crown"></i> زخرفة مميزة</button>
+            </div>
+            
+            <div id="vipDecoratedName"></div>
+        </div>
+    </div>
+    
+    <!-- نتائج الزخرفة -->
+    <div id="decoratedName"></div>
+    
+    <button class="load-more" id="loadMore" style="display: none;"><i class="fas fa-plus"></i> عرض المزيد</button>
+</div>
+
+<script>
+    // البيانات
+    const decorations = {
+        classic: ["꧁", "꧂", "༺", "༻", "『", "』", "〖", "〗", "〘", "〙", "✧", "✦", "♛", "♚"],
+        cute: ["♡", "♥", "❤", "❥", "❣", "ღ", "✿", "❀", "❁", "☘", "⚘", "🌸", "💮", "🏵️"],
+        fire: ["🔥", "♨", "☄", "★", "☆", "✪", "✫", "✯", "✰", "⚡", "☇", "☭", "☢", "☣"],
+        elegant: ["۝", "۞", "☬", "☫", "☯", "☮", "♱", "✞", "✟", "✠", "✡", "☸", "⚚", "☤"],
+        bold: ["⚔", "🛡", "🔰", "🔱", "🚩", "🏴", "🏳", "✵", "✶", "✷", "✸", "✹", "✺", "✻"],
+        all: []
+    };
+    
+    // زخارف المميزين
+    const vipDecorations = {
+        "vip-all": [],
+        "vip-gold": ["𓂀", "𓃭", "𓃰", "𓄿", "𓅓", "𓆉", "𓆣", "𓆤", "𓆥", "𓆦", "𓆰", "𓇋", "𓇛", "𓇜", "𓇭"],
+        "vip-silver": ["𓈖", "𓈗", "𓉐", "𓉠", "𓊖", "𓋹", "𓋳", "𓌃", "𓍯", "𓎛", "𓎡", "𓏏", "𓏤", "𓏥", "𓏭"],
+        "vip-diamond": ["𓐍", "𓐖", "𓐝", "𓐞", "𓐟", "𓐠", "𓐡", "𓐢", "𓐣", "𓐤", "𓐥", "𓐦", "𓐧", "𓐨", "𓐩"]
+    };
+    
+    // دمج جميع الزخارف في مجموعة "الكل"
+    decorations.all = [
+        ...decorations.classic,
+        ...decorations.cute,
+        ...decorations.fire,
+        ...decorations.elegant,
+        ...decorations.bold
+    ];
+    
+    vipDecorations["vip-all"] = [
+        ...vipDecorations["vip-gold"],
+        ...vipDecorations["vip-silver"],
+        ...vipDecorations["vip-diamond"]
+    ];
+    
+    const fonts = [
+        "Arial", "Times New Roman", "Courier New", "Georgia", 
+        "Verdana", "Tahoma", "Impact", "Comic Sans MS",
+        "Lucida Sans Unicode", "Palatino Linotype"
+    ];
+    
+    // العناصر
+    const nameInput = document.getElementById('name');
+    const decorateButton = document.getElementById('decorateButton');
+    const decoratedNameDiv = document.getElementById('decoratedName');
+    const toggleKeyboard = document.getElementById('toggleKeyboard');
+    const symbolsKeyboard = document.getElementById('symbolsKeyboard');
+    const toggleFavorites = document.getElementById('toggleFavorites');
+    const favoritesSection = document.getElementById('favoritesSection');
+    const favoritesList = document.getElementById('favoritesList');
+    const searchFavorites = document.querySelector('.search-favorites');
+    const clearFavorites = document.getElementById('clearFavorites');
+    const randomStyle = document.getElementById('randomStyle');
+    const styleOptions = document.querySelectorAll('.style-option:not(.vip)');
+    const loadMore = document.getElementById('loadMore');
+    const emojiPickerBtn = document.getElementById('emojiPickerBtn');
+    const emojiPicker = document.getElementById('emojiPicker');
+    const spaceBtn = document.getElementById('spaceBtn');
+    const copyAllBtn = document.getElementById('copyAllBtn');
+    const toggleVipSection = document.getElementById('toggleVipSection');
+    const vipSection = document.getElementById('vipSection');
+    const vipPassword = document.getElementById('vipPassword');
+    const vipLoginBtn = document.getElementById('vipLoginBtn');
+    const vipContent = document.getElementById('vipContent');
+    const vipName = document.getElementById('vipName');
+    const vipDecorateBtn = document.getElementById('vipDecorateBtn');
+    const vipDecoratedName = document.getElementById('vipDecoratedName');
+    const vipNamesList = document.getElementById('vipNamesList');
+    const searchVip = document.querySelector('.search-vip');
+    const vipStyleOptions = document.querySelectorAll('.style-option.vip');
+    const toggleBpubgKeyboard = document.getElementById('toggleBpubgKeyboard');
+    const bpubgKeyboard = document.getElementById('bpubgKeyboard');
+    const copyBpubgBtn = document.getElementById('copyBpubgBtn');
+    const bpubgSpaceBtn = document.getElementById('bpubgSpaceBtn');
+    const clearBpubgBtn = document.getElementById('clearBpubgBtn');
+    
+    // المتغيرات
+    let currentStyle = 'all';
+    let currentVipStyle = 'vip-all';
+    let visibleDecorations = 10;
+    let favorites = JSON.parse(localStorage.getItem('nameDecorationsFavorites')) || [];
+    let vipNames = [
+        { name: "محمد", style: "vip-gold" },
+        { name: "أحمد", style: "vip-silver" },
+        { name: "علي", style: "vip-diamond" },
+        { name: "خالد", style: "vip-gold" },
+        { name: "مريم", style: "vip-silver" },
+        { name: "فاطمة", style: "vip-diamond" },
+        { name: "يوسف", style: "vip-gold" },
+        { name: "زينب", style: "vip-silver" },
+        { name: "عمر", style: "vip-diamond" },
+        { name: "حسن", style: "vip-gold" }
+    ];
+    const VIP_PASSWORD = "3MK MOSTAFA";
+    let isVipAuthenticated = false;
+    
+    // تهيئة منتقي الإيموجي
+    const emojis = ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "😊", "😇", "🙂", "🙃", "😉", "😌", "😍", "🥰", "😘", "😗", "😙", "😚", "😋", "😛", "😝", "😜", "🤪", "🤨", "🧐", "🤓", "😎", "🥸", "🤩", "🥳", "😏", "😒", "😞", "😔", "😟", "😕", "🙁", "☹️", "😣", "😖", "😫", "😩", "🥺", "😢", "😭", "😤", "😠", "😡", "🤬", "🤯", "😳", "🥵", "🥶", "😱", "😨", "😰", "😥", "😓", "🤗", "🤔", "🤭", "🤫", "🤥", "😶", "😐", "😑", "😬", "🙄", "😯", "😦", "😧", "😮", "😲", "🥱", "😴", "🤤", "😪", "😵", "🤐", "🥴", "🤢", "🤮", "🤧", "😷", "🤒", "🤕", "🤑", "🤠", "😈", "👿", "👹", "👺", "🤡", "💩", "👻", "💀", "☠️", "👽", "👾", "🤖", "🎃", "😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾"];
+    
+    emojis.forEach(emoji => {
+        const btn = document.createElement('button');
+        btn.classList.add('emoji-btn');
+        btn.textContent = emoji;
+        btn.addEventListener('click', () => {
+            nameInput.value += emoji;
+            emojiPicker.classList.remove('active');
+        });
+        emojiPicker.appendChild(btn);
+    });
+    
+    // الأحداث
+    decorateButton.addEventListener('click', generateDecorations);
+    nameInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') generateDecorations();
+    });
+    
+    toggleKeyboard.addEventListener('click', () => {
+        symbolsKeyboard.classList.toggle('active');
+        favoritesSection.classList.remove('active');
+        vipSection.classList.remove('active');
+        bpubgKeyboard.classList.remove('active');
+    });
+    
+    toggleFavorites.addEventListener('click', () => {
+        favoritesSection.classList.toggle('active');
+        symbolsKeyboard.classList.remove('active');
+        vipSection.classList.remove('active');
+        bpubgKeyboard.classList.remove('active');
+        displayFavorites();
+    });
+    
+    toggleVipSection.addEventListener('click', () => {
+        vipSection.classList.toggle('active');
+        symbolsKeyboard.classList.remove('active');
+        favoritesSection.classList.remove('active');
+        bpubgKeyboard.classList.remove('active');
+        
+        if (!isVipAuthenticated) {
+            vipContent.style.display = 'none';
+        } else {
+            vipContent.style.display = 'block';
+            displayVipNames();
+        }
+    });
+    
+    toggleBpubgKeyboard.addEventListener('click', () => {
+        bpubgKeyboard.classList.toggle('active');
+        symbolsKeyboard.classList.remove('active');
+        favoritesSection.classList.remove('active');
+        vipSection.classList.remove('active');
+    });
+    
+    randomStyle.addEventListener('click', () => {
+        const styles = ['classic', 'cute', 'fire', 'elegant', 'bold'];
+        const randomStyle = styles[Math.floor(Math.random() * styles.length)];
+        currentStyle = randomStyle;
+        
+        // تحديث الأزرار النشطة
+        styleOptions.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.style === randomStyle) {
+                btn.classList.add('active');
+            }
+        });
+        
+        generateDecorations();
+    });
+    
+    styleOptions.forEach(btn => {
+        btn.addEventListener('click', () => {
+            styleOptions.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentStyle = btn.dataset.style;
+            generateDecorations();
+        });
+    });
+    
+    vipStyleOptions.forEach(btn => {
+        btn.addEventListener('click', () => {
+            vipStyleOptions.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentVipStyle = btn.dataset.style;
+            displayVipNames();
+        });
+    });
+    
+    searchFavorites.addEventListener('input', () => {
+        displayFavorites();
+    });
+    
+    searchVip.addEventListener('input', () => {
+        displayVipNames();
+    });
+    
+    clearFavorites.addEventListener('click', () => {
+        if (confirm('هل أنت متأكد من حذف جميع الأسماء المفضلة؟')) {
+            favorites = [];
+            localStorage.setItem('nameDecorationsFavorites', JSON.stringify(favorites));
+            displayFavorites();
+        }
+    });
+    
+    loadMore.addEventListener('click', () => {
+        visibleDecorations += 10;
+        generateDecorations(false);
+    });
+    
+    emojiPickerBtn.addEventListener('click', () => {
+        emojiPicker.classList.toggle('active');
+    });
+    
+    spaceBtn.addEventListener('click', () => {
+        nameInput.value += ' ';
+    });
+    
+    bpubgSpaceBtn.addEventListener('click', () => {
+        nameInput.value += ' ';
+    });
+    
+    copyAllBtn.addEventListener('click', () => {
+        const allDecorations = document.querySelectorAll('.decorated-name-text');
+        let allText = '';
+        
+        allDecorations.forEach(decoration => {
+            allText += decoration.textContent + '\n';
+        });
+        
+        if (allText) {
+            navigator.clipboard.writeText(allText)
+                .then(() => {
+                    copyAllBtn.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
+                    setTimeout(() => {
+                        copyAllBtn.innerHTML = '<i class="far fa-copy"></i> نسخ الكل';
+                    }, 1500);
+                })
+                .catch(err => {
+                    console.error('فشل نسخ النص: ', err);
+                    alert('فشل نسخ النص!');
+                });
+        } else {
+            alert('لا يوجد نصوص للنسخ!');
+        }
+    });
+    
+    copyBpubgBtn.addEventListener('click', () => {
+        const allKeys = document.querySelectorAll('#bpubgKeyboard .keyboard-key:not(.special):not(.space)');
+        let allChars = '';
+        
+        allKeys.forEach(key => {
+            allChars += key.textContent + ' ';
+        });
+        
+        navigator.clipboard.writeText(allChars)
+            .then(() => {
+                copyBpubgBtn.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
+                setTimeout(() => {
+                    copyBpubgBtn.innerHTML = '<i class="far fa-copy"></i> نسخ الكل';
+                }, 1500);
+            })
+            .catch(err => {
+                console.error('فشل نسخ النص: ', err);
+                alert('فشل نسخ النص!');
+            });
+    });
+    
+    clearBpubgBtn.addEventListener('click', () => {
+        nameInput.value = '';
+    });
+    
+    vipLoginBtn.addEventListener('click', () => {
+        if (vipPassword.value === VIP_PASSWORD) {
+            isVipAuthenticated = true;
+            vipContent.style.display = 'block';
+            vipPassword.value = '';
+            displayVipNames();
+            alert('تم الدخول بنجاح إلى قسم المميزين!');
+        } else {
+            alert('كلمة السر غير صحيحة!');
+        }
+    });
+    
+    vipDecorateBtn.addEventListener('click', () => {
+        const name = vipName.value.trim();
+        if (!name) {
+            alert('الرجاء إدخال اسم أولاً!');
+            return;
+        }
+        
+        const decoratedName = generateVipDecoration(name);
+        vipDecoratedName.innerHTML = `
+            <div class="decorated-name-container vip">
+                <p class="decorated-name-text">${decoratedName}</p>
+                <div class="action-buttons">
+                    <button class="copy-btn" onclick="copyToClipboard('${decoratedName}', this)"><i class="fas fa-copy"></i> نسخ</button>
+                </div>
+            </div>
+        `;
+    });
+    
+    // إضافة أحداث لوحة المفاتيح
+    document.querySelectorAll('.keyboard-key:not(.special):not(.vip)').forEach(key => {
+        key.addEventListener('click', () => {
+            nameInput.value += key.textContent;
+        });
+    });
+    
+    // إضافة أحداث لوحة مفاتيح ببجي
+    document.querySelectorAll('#bpubgKeyboard .keyboard-key:not(.special):not(.space)').forEach(key => {
+        key.addEventListener('click', () => {
+            nameInput.value += key.textContent;
+        });
+    });
+    
+    // الوظائف
+    function generateDecorations(clear = true) {
+        const name = nameInput.value.trim();
+        if (!name) {
+            alert('الرجاء إدخال اسم أولاً!');
+            return;
+        }
+        
+        if (clear) {
+            visibleDecorations = 10;
+            decoratedNameDiv.innerHTML = '';
+        }
+        
+        const results = [];
+        const selectedDecorations = decorations[currentStyle];
+        
+        for (let i = 0; i < visibleDecorations; i++) {
+            let decoratedName = '';
+            const randomDecoration1 = selectedDecorations[Math.floor(Math.random() * selectedDecorations.length)];
+            const randomDecoration2 = selectedDecorations[Math.floor(Math.random() * selectedDecorations.length)];
+            decoratedName = randomDecoration1 + name + randomDecoration2;
+            
+            // إضافة خط عشوائي لبعض النتائج
+            if (Math.random() > 0.7) {
+                const randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+                decoratedName = `<span style="font-family: ${randomFont};">${decoratedName}</span>`;
+            }
+            
+            results.push(decoratedName);
+        }
+        
+        displayResults(results, clear);
+        
+        if (results.length >= visibleDecorations) {
+            loadMore.style.display = 'block';
+        } else {
+            loadMore.style.display = 'none';
+        }
+    }
+    
+    function generateVipDecoration(name) {
+        const selectedDecorations = vipDecorations[currentVipStyle];
+        const randomDecoration1 = selectedDecorations[Math.floor(Math.random() * selectedDecorations.length)];
+        const randomDecoration2 = selectedDecorations[Math.floor(Math.random() * selectedDecorations.length)];
+        return randomDecoration1 + name + randomDecoration2;
+    }
+    
+    function displayResults(results, clear) {
+        if (clear) {
+            decoratedNameDiv.innerHTML = '';
+        }
+        
+        results.forEach(decoratedName => {
+            const isFavorite = favorites.some(fav => fav.text === decoratedName);
+            
+            const container = document.createElement('div');
+            container.classList.add('decorated-name-container');
+            if (isFavorite) container.classList.add('favorite');
+            
+            const text = document.createElement('p');
+            text.classList.add('decorated-name-text');
+            text.innerHTML = decoratedName;
+            
+            // نسخ النص عند النقر عليه
+            text.addEventListener('click', function() {
+                copyToClipboard(this.textContent, this);
+            });
+            
+            const actions = document.createElement('div');
+            actions.classList.add('action-buttons');
+            
+            const copyBtn = document.createElement('button');
+            copyBtn.classList.add('copy-btn');
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i> نسخ';
+            copyBtn.addEventListener('click', () => copyToClipboard(text.textContent, copyBtn));
+            
+            const favBtn = document.createElement('button');
+            favBtn.classList.add('fav-btn');
+            favBtn.innerHTML = isFavorite ? '<i class="fas fa-heart"></i> مفضل' : '<i class="far fa-heart"></i> حفظ';
+            favBtn.addEventListener('click', () => toggleFavorite(decoratedName, container, favBtn));
+            
+            actions.appendChild(copyBtn);
+            actions.appendChild(favBtn);
+            
+            container.appendChild(text);
+            container.appendChild(actions);
+            
+            decoratedNameDiv.appendChild(container);
+        });
+    }
+    
+    function displayVipNames() {
+        const searchTerm = searchVip.value.toLowerCase();
+        let filteredNames = vipNames;
+        
+        if (searchTerm) {
+            filteredNames = vipNames.filter(vip => 
+                vip.name.toLowerCase().includes(searchTerm)
+            );
+        }
+        
+        if (currentVipStyle !== 'vip-all') {
+            filteredNames = filteredNames.filter(vip => vip.style === currentVipStyle);
+        }
+        
+        vipNamesList.innerHTML = '';
+        
+        if (filteredNames.length === 0) {
+            vipNamesList.innerHTML = '<div class="no-results">لا توجد أسماء مطابقة</div>';
+            return;
+        }
+        
+        filteredNames.forEach(vip => {
+            const decoratedName = generateVipDecoration(vip.name);
+            
+            const container = document.createElement('div');
+            container.classList.add('decorated-name-container', 'vip');
+            
+            const text = document.createElement('p');
+            text.classList.add('decorated-name-text');
+            text.textContent = decoratedName;
+            
+            text.addEventListener('click', function() {
+                copyToClipboard(this.textContent, this);
+            });
+            
+            const actions = document.createElement('div');
+            actions.classList.add('action-buttons');
+            
+            const copyBtn = document.createElement('button');
+            copyBtn.classList.add('copy-btn');
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i> نسخ';
+            copyBtn.addEventListener('click', () => copyToClipboard(text.textContent, copyBtn));
+            
+            actions.appendChild(copyBtn);
+            
+            container.appendChild(text);
+            container.appendChild(actions);
+            
+            vipNamesList.appendChild(container);
+        });
+    }
+    
+    function copyToClipboard(text, element) {
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                if (element.classList.contains('decorated-name-text')) {
+                    const originalBg = element.style.backgroundColor;
+                    element.style.backgroundColor = 'rgba(0, 184, 148, 0.2)';
+                    setTimeout(() => {
+                        element.style.backgroundColor = originalBg;
+                    }, 500);
+                } else {
+                    element.innerHTML = '<i class="fas fa-check"></i> تم النسخ!';
+                    setTimeout(() => {
+                        element.innerHTML = '<i class="fas fa-copy"></i> نسخ';
+                    }, 1500);
+                }
+            })
+            .catch(err => {
+                console.error('فشل نسخ النص: ', err);
+                alert('فشل نسخ النص!');
+            });
+    }
+    
+    function toggleFavorite(text, container, btn) {
+        const index = favorites.findIndex(fav => fav.text === text);
+        
+        if (index === -1) {
+            // إضافة إلى المفضلة
+            favorites.push({ text, style: currentStyle });
+            container.classList.add('favorite');
+            btn.innerHTML = '<i class="fas fa-heart"></i> مفضل';
+        } else {
+            // إزالة من المفضلة
+            favorites.splice(index, 1);
+            container.classList.remove('favorite');
+            btn.innerHTML = '<i class="far fa-heart"></i> حفظ';
+        }
+        
+        localStorage.setItem('nameDecorationsFavorites', JSON.stringify(favorites));
+        
+        // إذا كانت لوحة المفضلة مفتوحة، قم بتحديث العرض
+        if (favoritesSection.classList.contains('active')) {
+            displayFavorites();
+        }
+    }
+    
+    function displayFavorites() {
+        const searchTerm = searchFavorites.value.toLowerCase();
+        let filteredFavorites = favorites;
+        
+        if (searchTerm) {
+            filteredFavorites = favorites.filter(fav => 
+                fav.text.toLowerCase().includes(searchTerm)
+            );
+        }
+        
+        favoritesList.innerHTML = '';
+        
+        if (filteredFavorites.length === 0) {
+            favoritesList.innerHTML = '<div class="no-results">لا توجد أسماء في المفضلة</div>';
+            return;
+        }
+        
+        filteredFavorites.forEach(fav => {
+            const container = document.createElement('div');
+            container.classList.add('decorated-name-container', 'favorite');
+            
+            const text = document.createElement('p');
+            text.classList.add('decorated-name-text');
+            text.innerHTML = fav.text;
+            
+            text.addEventListener('click', function() {
+                copyToClipboard(this.textContent, this);
+            });
+            
+            const actions = document.createElement('div');
+            actions.classList.add('action-buttons');
+            
+            const copyBtn = document.createElement('button');
+            copyBtn.classList.add('copy-btn');
+            copyBtn.innerHTML = '<i class="fas fa-copy"></i> نسخ';
+            copyBtn.addEventListener('click', () => copyToClipboard(text.textContent, copyBtn));
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.classList.add('fav-btn');
+            deleteBtn.innerHTML = '<i class="fas fa-trash"></i> حذف';
+            deleteBtn.addEventListener('click', () => {
+                const index = favorites.findIndex(f => f.text === fav.text);
+                if (index !== -1) {
+                    favorites.splice(index, 1);
+                    localStorage.setItem('nameDecorationsFavorites', JSON.stringify(favorites));
+                    displayFavorites();
+                }
+            });
+            
+            actions.appendChild(copyBtn);
+            actions.appendChild(deleteBtn);
+            
+            container.appendChild(text);
+            container.appendChild(actions);
+            
+            favoritesList.appendChild(container);
+        });
+    }
+    
+    // تهيئة أولية
+    displayFavorites();
+</script>
+</body>
+</html>
